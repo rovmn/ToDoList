@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="cancel_button_background">#33C23104</color>
+    <color name="confirm_button_background">#336DB041</color>
+    <color name="primary_background">#1A808080</color>
+    <color name="secondary_background">#1AFFFF00</color>
+    <color name="add_button_background">#FFEA99</color>
+    <color name="border_color">#FFEA99</color>
+</resources>

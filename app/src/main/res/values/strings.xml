@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">To Do List</string>
+    <string name="task_title">Task title</string>
+    <string name="task_description_text">Task description</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="task_description">Task description</string>
+    <string name="error_try_again">Error, try again</string>
+    <string name="successful_save">Successful save</string>
+    <string name="fill_in_the_fields">Please fill in all fields</string>
+    <string name="try_again">Try again</string>
+    <string name="to">To</string>
+    <string name="task_time_begin">%1$d:00 -&#160;</string>
+    <string name="task_time_end">%1$d:00</string>
+    <string name="wheel_time_string">"%1$d:00 - %2$d:00"</string>
+    <string name="success">Success</string>
+    <string name="delete">Delete</string>
+    <string name="confirm">Confirm</string>
+</resources>
