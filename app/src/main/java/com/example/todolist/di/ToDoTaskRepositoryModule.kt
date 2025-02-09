@@ -1,7 +1,8 @@
 package com.example.todolist.di
 
-import com.example.todolist.model.todotask.ToDoTaskRepository
-import com.example.todolist.model.todotask.room.RoomToDoTaskRepository
+import com.example.todolist.domain.repositories.ToDoTaskRepository
+import com.example.todolist.data.local.ToDoTasksLocalDataSource
+import com.example.todolist.data.repositories.ToDoTaskRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -15,6 +16,6 @@ abstract class ToDoTaskRepositoryModule {
     @Binds
     @Singleton
     abstract fun bindToDoTaskRepository(
-        toDoTaskRepository: RoomToDoTaskRepository
+        toDoTaskRepository: ToDoTaskRepositoryImpl
     ): ToDoTaskRepository
 }
