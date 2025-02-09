@@ -2,7 +2,6 @@ package com.example.todolist.common.utils
 
 import java.util.Calendar
 import java.util.Date
-import java.util.TimeZone
 import javax.inject.Inject
 
 class DateUtility @Inject constructor(
@@ -11,15 +10,14 @@ class DateUtility @Inject constructor(
 
     fun getSelectedDate(year: Int, month: Int, day: Int): Date{
         val tempCalendar = calendar
-        tempCalendar.time = Date(0)
+        tempCalendar.set(Calendar.SECOND, 0)
+        tempCalendar.set(Calendar.MILLISECOND, 0)
+        tempCalendar.set(Calendar.HOUR, 0)
         tempCalendar.set(year, month, day)
         return tempCalendar.time
     }
 
-    fun getCurrentDate(): Date {
-        calendar.timeZone = TimeZone.getDefault()
-        return calendar.time
-    }
+    fun getCurrentDate(): Date = calendar.time
 
     fun getSelectedDateWithSelectedTime(selectedDate: Date, selectedTime: Int): Date {
         val tempCalendar = calendar

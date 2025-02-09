@@ -6,6 +6,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import java.util.Calendar
+import java.util.TimeZone
 import javax.inject.Singleton
 
 @Module
@@ -22,6 +23,9 @@ class DateUtilityModule(
 
     @Provides
     @Singleton
-    fun provideCalendar(): Calendar = Calendar.getInstance()
-
+    fun provideCalendar(): Calendar {
+        return Calendar.getInstance().also {
+            it.timeZone = TimeZone.getDefault()
+        }
+    }
 }
