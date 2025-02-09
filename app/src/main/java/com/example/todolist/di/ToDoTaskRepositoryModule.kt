@@ -1,7 +1,6 @@
 package com.example.todolist.di
 
 import com.example.todolist.domain.repositories.ToDoTaskRepository
-import com.example.todolist.data.local.ToDoTasksLocalDataSource
 import com.example.todolist.data.repositories.ToDoTaskRepositoryImpl
 import dagger.Binds
 import dagger.Module

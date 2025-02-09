@@ -10,7 +10,6 @@ import com.example.todolist.R
 import com.example.todolist.databinding.ItemToDoTaskBinding
 import com.example.todolist.domain.models.ToDoTask
 import com.example.todolist.common.utils.DateUtility
-import javax.inject.Inject
 
 interface ItemClickListener{
     fun onToDoTaskDetails(toDoTask: ToDoTask)
