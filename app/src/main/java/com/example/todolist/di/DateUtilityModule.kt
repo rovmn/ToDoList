@@ -26,6 +26,10 @@ class DateUtilityModule(
     fun provideCalendar(): Calendar {
         return Calendar.getInstance().also {
             it.timeZone = TimeZone.getDefault()
+            it.set(Calendar.MILLISECOND, 0)
+            it.set(Calendar.SECOND, 0)
+            it.set(Calendar.MINUTE, 0)
+            it.set(Calendar.HOUR_OF_DAY, 0)
         }
     }
 }
