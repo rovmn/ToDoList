@@ -16,8 +16,8 @@ class ToDoTaskRepositoryImpl @Inject constructor(
     override suspend fun deleteToDoTask(toDoTaskId: Long): Result<Unit> =
         toDoTasksLocalDataSource.deleteToDoTask(toDoTaskId)
 
-    override suspend fun getToDoTasks(date: Date): Result<List<ToDoTask>> =
-        toDoTasksLocalDataSource.getToDoTasks(date)
+    override suspend fun getToDoTasks(startOfDay: Date, endOfDay: Date): Result<List<ToDoTask>> =
+        toDoTasksLocalDataSource.getToDoTasks(startOfDay, endOfDay)
 
     override suspend fun updateToDoTask(toDoTask: ToDoTask): Result<Unit> =
         toDoTasksLocalDataSource.updateToDoTask(toDoTask)

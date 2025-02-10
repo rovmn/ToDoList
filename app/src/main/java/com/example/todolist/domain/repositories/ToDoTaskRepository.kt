@@ -10,7 +10,7 @@ interface ToDoTaskRepository {
 
     suspend fun deleteToDoTask(toDoTaskId: Long): Result<Unit>
 
-    suspend fun getToDoTasks(date: Date) : Result<List<ToDoTask>>
+    suspend fun getToDoTasks(startOfDay: Date, endOfDay: Date) : Result<List<ToDoTask>>
 
     suspend fun updateToDoTask(toDoTask: ToDoTask): Result<Unit>
 }

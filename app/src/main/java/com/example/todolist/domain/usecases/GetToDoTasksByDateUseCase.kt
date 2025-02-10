@@ -8,6 +8,6 @@ import java.util.Date
 class GetToDoTasksByDateUseCase(
     private val toDoTasksRepository: ToDoTaskRepository
 ) {
-    suspend fun getToDoTasksByDate(date: Date): Result<List<ToDoTask>> =
-        toDoTasksRepository.getToDoTasks(date)
+    suspend fun getToDoTasksByDate(startOfDay: Date, endOfDay: Date): Result<List<ToDoTask>> =
+        toDoTasksRepository.getToDoTasks(startOfDay, endOfDay)
 }

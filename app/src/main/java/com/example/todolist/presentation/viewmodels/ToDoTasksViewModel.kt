@@ -32,12 +32,14 @@ class ToDoTasksViewModel @Inject constructor(
         _selectedDate.postValue(dateUtility.getSelectedDate(year, month, day))
     }
 
-    fun getToDoTasks(selectedDate: Date? = null) {
+    fun getToDoTasks() {
         viewModelScope.launch {
-            _toDoTasks.postValue(getToDoTasksByDateUseCase.getToDoTasksByDate(
-                selectedDate ?:
-                _selectedDate.value ?:
-                dateUtility.getCurrentDate())
+            val date = _selectedDate.value ?: dateUtility.getCurrentDate()
+            _toDoTasks.postValue(
+                getToDoTasksByDateUseCase.getToDoTasksByDate(
+                    dateUtility.getStartOfDay(date),
+                    dateUtility.getEndOfDay(date)
+                )
             )
         }
     }

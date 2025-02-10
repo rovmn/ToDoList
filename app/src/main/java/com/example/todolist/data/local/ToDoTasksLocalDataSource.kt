@@ -17,9 +17,9 @@ class ToDoTasksLocalDataSource @Inject constructor(
     private val toDoTasksDao: ToDoTaskDao,
     private val toDoTaskDbEntityMapper: ToDoTaskToToDoTaskDbEntityMapper,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher
-) : ToDoTaskRepository {
+) {
 
-    override suspend fun createToDoTask(toDoTask: ToDoTask): Result<Unit> {
+    suspend fun createToDoTask(toDoTask: ToDoTask): Result<Unit> {
         return withContext(ioDispatcher) {
             try {
                 PendingResult<Unit>()
@@ -32,7 +32,7 @@ class ToDoTasksLocalDataSource @Inject constructor(
         }
     }
 
-    override suspend fun deleteToDoTask(toDoTaskId: Long): Result<Unit> {
+    suspend fun deleteToDoTask(toDoTaskId: Long): Result<Unit> {
         return withContext(ioDispatcher) {
             try {
                 PendingResult<Unit>()
@@ -44,11 +44,11 @@ class ToDoTasksLocalDataSource @Inject constructor(
         }
     }
 
-    override suspend fun getToDoTasks(date: Date): Result<List<ToDoTask>> {
+    suspend fun getToDoTasks(startOfDay: Date, endOfDay: Date): Result<List<ToDoTask>> {
         return withContext(ioDispatcher) {
             try {
                 PendingResult<Unit>()
-                var toDoTasks = toDoTasksDao.getToDoTasks(date).map { toDoTaskDbEntity ->
+                var toDoTasks = toDoTasksDao.getToDoTasks(startOfDay, endOfDay).map { toDoTaskDbEntity ->
                     toDoTaskDbEntityMapper.reverseMap(toDoTaskDbEntity)
                 }
                 SuccessResult(toDoTasks)
@@ -58,7 +58,7 @@ class ToDoTasksLocalDataSource @Inject constructor(
         }
     }
 
-    override suspend fun updateToDoTask(toDoTask: ToDoTask): Result<Unit> {
+    suspend fun updateToDoTask(toDoTask: ToDoTask): Result<Unit> {
         return withContext(ioDispatcher) {
             try {
                 toDoTasksDao.updateToDoTask(toDoTaskDbEntityMapper.map(toDoTask))

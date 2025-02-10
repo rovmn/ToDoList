@@ -1,6 +1,7 @@
 package com.example.todolist.presentation.views.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,7 +47,9 @@ class ToDoTasksFragment : Fragment() {
 
         viewModel.selectedDate.observe(viewLifecycleOwner) { selectedDate ->
             binding.calendarView.date = selectedDate.time
-            viewModel.getToDoTasks(selectedDate)
+            Log.d("NIGGA", "${selectedDate}")
+            Log.d("NIGGA", "${selectedDate.time}")
+            viewModel.getToDoTasks()
         }
 
         binding.calendarView.setOnDateChangeListener{ view, y, m, d ->

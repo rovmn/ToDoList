@@ -10,7 +10,23 @@ class DateUtility @Inject constructor(
 
     fun getSelectedDate(year: Int, month: Int, day: Int): Date{
         val tempCalendar = calendar
-        tempCalendar.set(year, month, day)
+        tempCalendar.set(year, month, day, 0, 0)
+        return tempCalendar.time
+    }
+
+    fun getStartOfDay(date: Date): Date {
+        val tempCalendar = calendar
+        tempCalendar.time = date
+        return tempCalendar.time
+    }
+
+    fun getEndOfDay(date: Date): Date {
+        val tempCalendar = calendar
+        tempCalendar.time = date
+        tempCalendar.set(Calendar.HOUR_OF_DAY, 23)
+        tempCalendar.set(Calendar.MINUTE, 59)
+        tempCalendar.set(Calendar.SECOND, 59)
+        tempCalendar.set(Calendar.MILLISECOND, 999)
         return tempCalendar.time
     }
 

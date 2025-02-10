@@ -11,10 +11,8 @@ import java.util.Date
 @Dao
 interface ToDoTaskDao {
 
-    @Query("SELECT * FROM tasks " +
-            "WHERE DATE(task_begin, 'unixepoch') = DATE(:date, 'unixepoch') " +
-            "ORDER BY task_begin")
-    suspend fun getToDoTasks(date: Date): List<ToDoTaskDbEntity>
+    @Query("SELECT * FROM tasks WHERE task_begin BETWEEN :startOfDay AND :endOfDay ")
+    suspend fun getToDoTasks(startOfDay: Date, endOfDay: Date): List<ToDoTaskDbEntity>
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     suspend fun updateToDoTask(toDoTaskDbEntity: ToDoTaskDbEntity)
